@@ -1,8 +1,8 @@
-# aToken cookie in the comixology app
-AUTH_TOKEN = "token goes here"
+import os
 
-if (AUTH_TOKEN == "token goes here"):
-    print("SET YOUR AUTH TOKEN IN config.py BEFORE DOWNLOADING ! ! !")
+AUTH_TOKEN = os.environ.get("COMIX_AUTH_TOKEN")
+if (AUTH_TOKEN is None):
+    print("*** SET COMIX_AUTH_TOKEN ENVIRONMENT VARIABLE ***")
     exit()
 
 API_DOWNLOAD_URL = "https://cmx-secure.comixology.com/ios/api/com.iconology.android.Comics/3.9.7/?deviceType=tablet&lang=en&store=US&action=getUserPurchase"
